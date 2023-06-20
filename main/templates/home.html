@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="home-upper-container">
+    <img src="{% static 'images/wide-photo.jpg' %}" alt="">
+</div>
+<hr>
+<div class="home-data-container">
+    <h2 style="text-align: center;">RENT YOUR BIKE TODAY</h2>
+    <div class="home-bikes-container">
+        {% for bike in bikes %}
+        <a href="{% url 'bike' bike.id %}">
+            <img src="{{bike.bike_photo}}" alt="">
+        </a>
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="home-a-div bg-dark-subtle">
+        <h3 style="text-align: center;">CHECKOUT ALL AVAIABLE BIKES</h3>
+        <a href="{% url 'bikes-page' %}">
+            <div class="a-tag">
+                <h2>BIKES</h2>
+            </div>
+        </a>
+    </div>
+    <hr>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="bike-container">
+        <div class="bike-image">
+            <img src="{{bike.bike_photo.url}}" alt="xd">
+        </div>
+        <div class="bike-data">
+            <h2>{{bike.name}}</h2>
+            <hr>
+            <h4>Model: {{bike.model}}</h4>
+            <h4>Price for a day: {{bike.price}}</h4>
+            <h5>Avaiable: {% if bike.is_avaiable%} Yes {%else%} No {% endif %}</h5>
+            <a href="{% url 'bike-reservation' bike.id %}" type="button" class="btn btn-secondary btn-lg" style="margin-top: 1rem;">Reserve</a>
+            <hr>
+        </div>
+    </div>
+    <hr>
+    <div class="bikes-displaying">
+        {% for bike_img in bikes %}
+            {% if bike_img.id != bike.id and bike_img.is_avaiable == True%}
+            <a href="" class="bike-lower-container">
+                <img src="{{bike_img.bike_photo.url}}" alt="">
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

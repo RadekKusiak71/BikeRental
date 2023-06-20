@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Bike Reservation</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your first name">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your last name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="rental_end_day">Rental End Day</label>
+      <input type="date" class="form-control" id="rental_end_day" name="rental_end_day">
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 2rem;">Submit</button>
+  </form>
+</div>
+{% endblock %}

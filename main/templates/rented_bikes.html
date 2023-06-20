@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="rented-bikes-container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Your Rented Bikes</h2>
+    {% if user.is_authenticated %}
+    <div class="bike-list">
+        {% for rental in rentals %}
+        <div class="rental-card">
+            <img src="{{ rental.bike.bike_photo.url }}" alt="{{ rental.bike.name }}" class="bike-photo-rented">
+            <div class="rental-details">
+                <h3>{{ rental.bike.name }}</h3>
+                <p>Model: {{ rental.bike.model }}</p>
+                <p>Rental End Day: {{ rental.rental_end_day }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>You need to be logged in to access this page.</p>
+    {% endif %}
+</div>
+{% endblock %}

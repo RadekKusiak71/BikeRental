@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bikes-container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Available Bikes</h2>
+    <div class="bike-list">
+        {% for bike in bikes %}
+        <div class="bike-card">
+            <img src="{{ bike.bike_photo.url }}" alt="{{ bike.name }}" class="bike-photo">
+            <div class="bike-details">
+                <h3>{{ bike.name }}</h3>
+                <p>Price: {{ bike.price }}$ for a day</p>
+                <p>Availability: {% if bike.is_avaiable %}Available{% else %}Unavailable{% endif %}</p>
+                <a href="{% url 'bike' bike.id  %}" type="button" class="btn btn-secondary">Go to details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
