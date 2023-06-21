@@ -1,2 +1,2 @@
 # BikeRental
-BikeRental Application
+Easy bike reservation site
