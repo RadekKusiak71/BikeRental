@@ -20,7 +20,7 @@
     <div class="bikes-displaying">
         {% for bike_img in bikes %}
             {% if bike_img.id != bike.id and bike_img.is_avaiable == True%}
-            <a href="" class="bike-lower-container">
+            <a href="{% url 'bike' bike_img.id %}" class="bike-lower-container">
                 <img src="{{bike_img.bike_photo.url}}" alt="">
             </a>
             {% endif %}
